@@ -12,6 +12,8 @@ class AreaTableViewController: UITableViewController {
     
     var areas = ["温州市鹿城区","温州市龙湾区","温州市瓯海区","温州市洞头区","杭州市萧山区","杭州市江干区","杭州市上城区","杭州市下城区","杭州市滨江区"]
 
+    var areaImages = ["xinzhuang","qilihe","youxi","chengxi","baiyun","shangjie","nangang","yaodu","wuhou","jinping","furong"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,10 +43,10 @@ class AreaTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) //cell 名字可自定义。 Cell为在storyboard中定义的tebleview 自定义ID。
 
         cell.textLabel?.text = areas[indexPath.row] //indexPath包括相应行所在的位置信息，包括哪个区块，row是哪一行。
-        
+        cell.imageView?.image = UIImage(named:areaImages[indexPath.row]) //按顺序定义相应的图片。
         // Configure the cell...
 
         return cell
