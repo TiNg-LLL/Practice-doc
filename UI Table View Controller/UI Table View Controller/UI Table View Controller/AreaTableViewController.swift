@@ -14,6 +14,10 @@ class AreaTableViewController: UITableViewController {
 
     var areaImages = ["xinzhuang","qilihe","youxi","chengxi","baiyun","shangjie","nangang","yaodu","wuhou","jinping","furong"]
     
+    var provinces = ["上海","甘肃","福建","青海","广东","福建","黑龙江","山西","四川","广东","湖南"]
+    
+    var parts = ["华东","西北","东南","西北","华南","东南","东北","华北","西南","华南","华中"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,10 +47,15 @@ class AreaTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) //cell 名字可自定义。 Cell为在storyboard中定义的tebleview 自定义ID。
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell //as 类型转换，从一个类型转换到另一个类型，原来是UITableView 转换成CustomTableView ， as!强制                          转换(失败app会奔溃) as?安全转换(失败不会奔溃)
 
-        cell.textLabel?.text = areas[indexPath.row] //indexPath包括相应行所在的位置信息，包括哪个区块，row是哪一行。
-        cell.imageView?.image = UIImage(named:areaImages[indexPath.row]) //按顺序定义相应的图片。
+        cell.NameLabel.text = areas[indexPath.row] // NameLabel是在CustomTableViewCell中定义的。
+        cell.ProvinceLabel.text = provinces[indexPath.row]
+        cell.PartLabel.text = parts[indexPath.row]
+        cell.ThumbImageView.image = UIImage(named: areaImages[indexPath.row]) // ThumbImageView是在CustomTableViewCell中定义的。
+        cell.ThumbImageView.layer.cornerRadius = cell.ThumbImageView.frame.size.height/2  //cornerRadius是角半径  frame是长方形的尺寸属性
+        cell.ThumbImageView.clipsToBounds = true //使layer裁边生效。
+        
         // Configure the cell...
 
         return cell

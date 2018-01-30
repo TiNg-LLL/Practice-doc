@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250C1CB6202094BE00F5DA97 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C1CB5202094BE00F5DA97 /* CustomTableViewCell.swift */; };
 		25D2E016201A1F4B004A9A9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E015201A1F4B004A9A9D /* AppDelegate.swift */; };
 		25D2E01B201A1F4B004A9A9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D2E019201A1F4B004A9A9D /* Main.storyboard */; };
 		25D2E01D201A1F4B004A9A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D2E01C201A1F4B004A9A9D /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250C1CB5202094BE00F5DA97 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		25D2E012201A1F4B004A9A9D /* UI Table View Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UI Table View Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D2E015201A1F4B004A9A9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25D2E01A201A1F4B004A9A9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				25D2E015201A1F4B004A9A9D /* AppDelegate.swift */,
 				25D2E019201A1F4B004A9A9D /* Main.storyboard */,
 				25D2E027201A2405004A9A9D /* AreaTableViewController.swift */,
+				250C1CB5202094BE00F5DA97 /* CustomTableViewCell.swift */,
 				25D2E01C201A1F4B004A9A9D /* Assets.xcassets */,
 				25D2E01E201A1F4B004A9A9D /* LaunchScreen.storyboard */,
 				25D2E021201A1F4B004A9A9D /* Info.plist */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250C1CB6202094BE00F5DA97 /* CustomTableViewCell.swift in Sources */,
 				25D2E028201A2405004A9A9D /* AreaTableViewController.swift in Sources */,
 				25D2E016201A1F4B004A9A9D /* AppDelegate.swift in Sources */,
 			);
