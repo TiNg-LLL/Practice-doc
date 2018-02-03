@@ -18,6 +18,8 @@ class AreaTableViewController: UITableViewController {
     
     var parts = ["华东","西北","东南","西北","华南","东南","东北","华北","西南","华南","华中"]
     
+    var visited = [Bool](repeatElement(false, count: 11)) //创建里面有11个false的数组
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +46,7 @@ class AreaTableViewController: UITableViewController {
         let option3 = UIAlertAction(title: "我去过", style: .default) { (_) in  //新建一个提示后可以的操作的按钮,handler就是定义点击之后的一个操作，回车后变成in。。。
             let cell = tableView.cellForRow(at: indexPath) //获取单元格的位置，给cell
             cell?.accessoryType = .checkmark //相应的单元格，做一些系统自带的标记 .checkmark 是打勾☑️
+            self.visited[indexPath.row] = true //更新创建的数组中相应点击的行改为true
         }
         
         menu.addAction(option2) //将新建的操作菜单2增加到新建的提示
@@ -51,6 +54,8 @@ class AreaTableViewController: UITableViewController {
         menu.addAction(option3) //将新建的操作菜单3增加到新建的提示
         
         self.present(menu, animated: true, completion: nil) //要将新建的提示进行显示
+        
+        tableView.deselectRow(at: indexPath, animated: true) //取消选中状态，如果没有这一行，点击选中一行后，是一直维持选中状态。
     }
     
     // MARK: - Table view data source
@@ -76,6 +81,11 @@ class AreaTableViewController: UITableViewController {
         cell.ThumbImageView.layer.cornerRadius = cell.ThumbImageView.frame.size.height/2  //cornerRadius是角半径  frame是长方形的尺寸属性
         cell.ThumbImageView.clipsToBounds = true //使layer裁边生效。
         
+        if visited[indexPath.row] {   //从数组中判断是false还是true 判断是☑️还是none，以消除复选Bug。
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         // Configure the cell...
 
         return cell
