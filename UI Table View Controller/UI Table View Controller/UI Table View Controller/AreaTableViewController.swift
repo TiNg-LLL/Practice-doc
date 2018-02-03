@@ -37,15 +37,14 @@ class AreaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //didSelectRowAt 点击一行后进行反应。
 //        print("您点击了",indexPath.section,"组",indexPath.row,"行")
         
-        let menu = UIAlertController(title: "您好", message: "您点击了第\(indexPath.row)行", preferredStyle: .alert) //新建一个UIAlertController提示
-        
-        let option1 = UIAlertAction(title: "确定", style: .default, handler: nil)  //新建一个提示后可以的操作的按钮
-        
+        let menu = UIAlertController(title: "您好", message: "您点击了第\(indexPath.row)行", preferredStyle: .actionSheet) //新建一个UIAlertController提示 .actionSheet是操作菜单
+
         let option2 = UIAlertAction(title: "取消", style: .cancel, handler: nil)  //新建一个提示后可以的操作的按钮
         
-        let option3 = UIAlertAction(title: "删除", style: .destructive, handler: nil)  //新建一个提示后可以的操作的按钮
-        
-        menu.addAction(option1) //将新建的操作菜单1增加到新建的提示
+        let option3 = UIAlertAction(title: "我去过", style: .default) { (_) in  //新建一个提示后可以的操作的按钮,handler就是定义点击之后的一个操作，回车后变成in。。。
+            let cell = tableView.cellForRow(at: indexPath) //获取单元格的位置，给cell
+            cell?.accessoryType = .checkmark //相应的单元格，做一些系统自带的标记 .checkmark 是打勾☑️
+        }
         
         menu.addAction(option2) //将新建的操作菜单2增加到新建的提示
         
