@@ -33,6 +33,27 @@ class AreaTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Table view delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //didSelectRowAt 点击一行后进行反应。
+//        print("您点击了",indexPath.section,"组",indexPath.row,"行")
+        
+        let menu = UIAlertController(title: "您好", message: "您点击了第\(indexPath.row)行", preferredStyle: .alert) //新建一个UIAlertController提示
+        
+        let option1 = UIAlertAction(title: "确定", style: .default, handler: nil)  //新建一个提示后可以的操作的按钮
+        
+        let option2 = UIAlertAction(title: "取消", style: .cancel, handler: nil)  //新建一个提示后可以的操作的按钮
+        
+        let option3 = UIAlertAction(title: "删除", style: .destructive, handler: nil)  //新建一个提示后可以的操作的按钮
+        
+        menu.addAction(option1) //将新建的操作菜单1增加到新建的提示
+        
+        menu.addAction(option2) //将新建的操作菜单2增加到新建的提示
+        
+        menu.addAction(option3) //将新建的操作菜单3增加到新建的提示
+        
+        self.present(menu, animated: true, completion: nil) //要将新建的提示进行显示
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {  //numberOfSections，这个列表有几个区块 默认就是一个区块，默认是1 这个func可以删除去掉。
